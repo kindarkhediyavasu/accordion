@@ -3,11 +3,15 @@ const icons = document.querySelectorAll(".question i");
 icons.forEach((i) => {
     i.addEventListener("click",(e) => {
           hideAnswer();
-          hideMinusIcon();
         if(i.classList.contains("fa-plus")){
+            hideMinusIcon();
              i.classList.remove("fa-plus");
              i.classList.add("fa-minus");
              i.parentElement.nextElementSibling.style.display = "block";
+        }else{
+             i.classList.remove("fa-minus");
+             i.classList.add("fa-plus");
+             i.parentElement.nextElementSibling.style.display = "none";
         }
     });
 });
@@ -20,10 +24,12 @@ function hideAnswer(){
 }
 
 function hideMinusIcon(){
-    icons.forEach((i) => {
-        i.classList.remove("fa-minus");
-        i.classList.add("fa-plus");
-    });
+    const minusIcons = document.querySelector(".fa-minus");
+      if(minusIcons){
+        minusIcons.classList.remove("fa-minus");
+        minusIcons.classList.add("fa-plus");
+        
+      }
 }
 
 // const topics = document.querySelectorAll(".topics");
